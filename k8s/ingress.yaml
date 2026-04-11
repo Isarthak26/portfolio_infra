@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portfolio
+  namespace: portfolio
+  labels:
+    app: portfolio
+  annotations:
+    # Use the Nginx ingress controller installed via Helm
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    # Enable gzip compression
+    nginx.ingress.kubernetes.io/enable-compression: "true"
+    # Proxy timeouts
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "30"
+    # Max request body size (useful if portfolio has file uploads)
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+spec:
+  rules:
+    # ── Option A: Access via LoadBalancer IP (default) ──────────────────
+    # Works out of the box — just use the EXTERNAL-IP from:
+    # kubectl get svc -n ingress-nginx
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: portfolio
+                port:
+                  number: 80
+
+    # ── Option B: Access via custom domain (optional) ───────────────────
+    # Uncomment the block below and comment out Option A above.
+    # Then point your domain's A record to the LoadBalancer IP.
+    #
+    # - host: portfolio.yourdomain.com
+    #   http:
+    #     paths:
+    #       - path: /
+    #         pathType: Prefix
+    #         backend:
+    #           service:
+    #             name: portfolio
+    #             port:
+    #               number: 80

@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: portfolio
+  namespace: argocd
+  labels:
+    app: portfolio
+  # ArgoCD will delete all child resources when this Application is deleted
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  # ── Source: your portfolio-infra GitHub repo ──────────────────────────
+  source:
+    # ⚠️  IMPORTANT: Replace YOUR_GITHUB_USERNAME with your actual GitHub username
+    repoURL: https://github.com/YOUR_GITHUB_USERNAME/portfolio-infra.git
+    targetRevision: HEAD   # Always track the latest commit on default branch
+    path: k8s              # ArgoCD watches the k8s/ directory
+
+  # ── Destination: AKS cluster ─────────────────────────────────────────
+  destination:
+    server: https://kubernetes.default.svc  # In-cluster (ArgoCD runs in AKS)
+    namespace: portfolio
+
+  # ── Sync policy ───────────────────────────────────────────────────────
+  syncPolicy:
+    automated:
+      prune: true      # Remove resources that are no longer in Git
+      selfHeal: true   # Re-sync if someone manually changes the cluster
+    syncOptions:
+      - CreateNamespace=true   # Auto-create the portfolio namespace if missing
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m

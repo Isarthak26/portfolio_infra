@@ -1,0 +1,46 @@
+# Terraform state files - NEVER commit these
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Terraform plan output
+*.tfplan
+tfplan
+
+# Terraform working directory
+.terraform/
+.terraform.lock.hcl
+
+# SSH private keys - NEVER commit
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+
+# Sensitive variable files
+*.auto.tfvars
+secrets.tfvars
+secret.tfvars
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Azure CLI credentials
+.azure/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

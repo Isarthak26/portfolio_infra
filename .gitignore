@@ -1,0 +1,29 @@
+# ---------------------------
+# BUILD STAGE
+# ---------------------------
+FROM node:18-bullseye AS builder
+
+WORKDIR /app
+
+# Copy dependencies
+COPY package*.json ./
+
+# Install dependencies cleanly
+RUN npm install
+
+# Copy app
+COPY . .
+
+# Build app
+RUN npm run build
+
+
+# ---------------------------
+# PRODUCTION STAGE
+# ---------------------------
+FROM nginx:alpine
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

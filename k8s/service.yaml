@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio
+  namespace: portfolio
+  labels:
+    app: portfolio
+spec:
+  # ClusterIP = internal only; Nginx Ingress routes external traffic to this service
+  type: ClusterIP
+  selector:
+    app: portfolio
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80          # Service listens on port 80
+      targetPort: 3000  # Forwards to container port 3000
