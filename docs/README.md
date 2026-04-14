@@ -4,7 +4,7 @@ Complete **Infrastructure as Code** + **Kubernetes manifests** for automated Git
 
 ## 🎯 Overview
 
-This repository contains:
+This repository contains :
 - **Terraform modules** to provision Azure infrastructure (AKS, ACR, VNet, Jenkins)
 - **Kubernetes manifests** for portfolio application deployment
 - **ArgoCD configuration** for GitOps continuous deployment
