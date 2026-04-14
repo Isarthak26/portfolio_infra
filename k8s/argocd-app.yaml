@@ -14,7 +14,7 @@ spec:
   # ── Source: your portfolio-infra GitHub repo ──────────────────────────
   source:
     # ⚠️  IMPORTANT: Replace YOUR_GITHUB_USERNAME with your actual GitHub username
-    repoURL: https://github.com/YOUR_GITHUB_USERNAME/portfolio-infra.git
+    repoURL: https://github.com/Isarthak26/portfolio-infra.git
     targetRevision: HEAD   # Always track the latest commit on default branch
     path: k8s              # ArgoCD watches the k8s/ directory
 

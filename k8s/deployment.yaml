@@ -36,7 +36,11 @@ spec:
         - name: portfolio
           # ⚠️  IMPORTANT: Replace 'portfolioacr' with YOUR ACR registry name
           # Jenkins will auto-update this image tag on every successful build
+<<<<<<< HEAD
           image: portfolioacr112.azurecr.io/portfolio:14
+=======
+          image: portfolioacr112.azurecr.io/portfolio:latest
+>>>>>>> 1897059 (Trigger: Test full CI/CD pipeline)
 
           imagePullPolicy: Always
 
