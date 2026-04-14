@@ -359,8 +359,8 @@ MIT License - see LICENSE file
 ## 👤 Author
 
 **Sarthak Bordia**
-- GitHub: [@sarthakbordia](https://github.com/sarthakbordia)
-- LinkedIn: [Sarthak Bordia](https://linkedin.com/in/sarthak-bordia)
+- GitHub: [@sarthakbordia](https://github.com/Isarthak26)
+- LinkedIn: [Sarthak Bordia](https://www.linkedin.com/in/sarthak-bordia-3b9b891a0/)
 
 ---
 
