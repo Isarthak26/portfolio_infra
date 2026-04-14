@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: portfolio
-          image: portfolioacr112.azurecr.io/portfolio:18
+          image: portfolioacr112.azurecr.io/portfolio:19
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
