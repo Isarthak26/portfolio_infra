@@ -1,4 +1,4 @@
-# 📦 Portfolio Infrastructure Repository
+# 📦 Portfolio Infrastructure Repositoryy
 
 Complete **Infrastructure as Code** + **Kubernetes manifests** for automated GitOps CI/CD deployment on Azure.
 
