@@ -36,7 +36,7 @@ spec:
         - name: portfolio
           # ⚠️  IMPORTANT: Replace 'portfolioacr' with YOUR ACR registry name
           # Jenkins will auto-update this image tag on every successful build
-          image: portfolioacr112.azurecr.io/portfolio:10
+          image: portfolioacr112.azurecr.io/portfolio:14
 
           imagePullPolicy: Always
 
